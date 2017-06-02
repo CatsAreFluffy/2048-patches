@@ -1,0 +1,38 @@
+if(takeOver){ //takeOver is a function used by the AI
+    function takeOver(){
+
+    try {	
+	
+    	// test game is compatible and set exec str
+    	///testGame();
+	
+	    // take over manager
+	    realGM = eval(gm_exec_str);
+
+    	// set constants
+    	GRID_SIZE = realGM.size;
+    	for (var i=0;i<100;i++) {
+    		if (realGM.getVector(i) == null) break;
+    	}	
+    	NUM_OF_MOVES = i;
+	
+	    // setup speedups
+//	    speedups();
+
+    	var testAI = new AI(realGM);
+    	var res = testAI.getBestMove();
+	
+    	realAI = new AI(realGM);
+	
+    	if (document.getElementById('toggleAI')) return;
+    	setup_UI();
+    } catch (e) {
+    	alert("There's a problem accessing this game. If you want me to fix this, please report it at the feedback link.");
+	
+    }	
+    console.log('AI Patch successful!');
+    console.log('You can play with the AI constants RUNS and MOVES_AHEAD to control AI strength. Set DEBUG to see verbose running data.');
+   	console.log('run speedups() for experimental speedup patchs.');
+	
+    }
+}
