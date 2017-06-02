@@ -1,3 +1,4 @@
+var gametitle=document.getElementsByClassName("title")[0].innerHTML
 if(takeOver){ //takeOver is a function used by the AI
     function takeOver(){
 
@@ -35,7 +36,6 @@ if(takeOver){ //takeOver is a function used by the AI
     console.log('run speedups() for experimental speedup patchs.');
     
     }
-    var gametitle=document.getElementsByClassName("title")[0].innerHTML
     if(gametitle==="Isotopic 256"){ //Isotopic 256 requires a patch to copy instability to random runs
         AI.prototype.cloneGM=function(gm) {
             // create a backgroud manager to do the runs on
@@ -70,3 +70,7 @@ if(takeOver){ //takeOver is a function used by the AI
         };
         StubManager.prototype.updateCurrentlyUnlocked=StubManager.prototype.setGameMode=StubManager.prototype.announce=nullfunc; //by this point the AI manages to install itself
 }
+if(gametitle==="DIVE"){
+    document.body.appendChild(document.createElement('style')).src='https://catsarefluffy.github.io/2048-patches/big_grid_dive.css';
+}else{
+    document.body.appendChild(document.createElement('style')).src='https://catsarefluffy.github.io/2048-patches/big_grid.css';
