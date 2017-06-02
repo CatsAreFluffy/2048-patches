@@ -60,7 +60,7 @@ if(takeOver){ //takeOver is a function used by the AI
     
             return bgm;
         }
-    else if(gametitle=="DIVE"){ //AI fails to load
+    }else if(gametitle=="DIVE"){ //AI fails to load
         GameManager.prototype.isGameTerminated = function () {
             if (this.over || (this.won && !this.keepPlaying)) {
                 return true;
