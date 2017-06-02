@@ -1,0 +1,31 @@
+.tile.tile-position-5-1 {
+    transform: translate(484px, 0px);
+}
+
+.tile.tile-position-5-2 {
+    transform: translate(484px, 121px);
+}
+
+.tile.tile-position-5-3 {
+    transform: translate(484px, 242px);
+}
+
+.tile.tile-position-5-4 {
+    transform: translate(484px, 363px);
+}
+
+.tile.tile-position-5-5 {
+    transform: translate(484px, 484px);
+}
+
+.tile.tile-position-4-5 {
+    transform: translate(363px, 484px);
+}
+
+.tile.tile-position-5-5 {
+    transform: translate(242px, 484px);
+}
+
+.tile.tile-position-4-5 {
+    transform: translate(121px, 484px);
+}
