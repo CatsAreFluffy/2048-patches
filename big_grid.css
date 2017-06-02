@@ -22,10 +22,14 @@
     transform: translate(363px, 484px);
 }
 
-.tile.tile-position-5-5 {
+.tile.tile-position-3-5 {
     transform: translate(242px, 484px);
 }
 
-.tile.tile-position-4-5 {
+.tile.tile-position-2-5 {
     transform: translate(121px, 484px);
+}
+
+.tile.tile-position-1-5 {
+    transform: translate(0px, 484px);
 }
