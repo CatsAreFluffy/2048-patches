@@ -38,26 +38,35 @@ if(takeOver){ //takeOver is a function used by the AI
     var gametitle=document.getElementsByClassName("title")[0].innerHTML
     if(gametitle==="Isotopic 256"){ //Isotopic 256 requires a patch to copy instability to random runs
         AI.prototype.cloneGM=function(gm) {
-    // create a backgroud manager to do the runs on
-    var bgm = new GameManager(GRID_SIZE, StubManager, StubManager, StubManager);
+            // create a backgroud manager to do the runs on
+            var bgm = new GameManager(GRID_SIZE, StubManager, StubManager, StubManager);
     
-    // clone grid
-    for (var x=0;x<gm.grid.cells.length;x++) {
-        for (var y=0;y<gm.grid.cells[x].length;y++) {
-            var cell = gm.grid.cells[x][y];
+                // clone grid
+                for (var x=0;x<gm.grid.cells.length;x++) {
+                for (var y=0;y<gm.grid.cells[x].length;y++) {
+                    var cell = gm.grid.cells[x][y];
             
-            // clone cell if exists
-            if (cell) {
-                var value = JSON.parse(JSON.stringify(cell.value));
-                var unstable = cell.unstable
-                cell = new Tile({ x: cell.x, y: cell.y }, cell.value);
-                cell.unstable = unstable
+                    // clone cell if exists
+                    if (cell) {
+                        var value = JSON.parse(JSON.stringify(cell.value));
+                        var unstable = cell.unstable
+                        cell = new Tile({ x: cell.x, y: cell.y }, cell.value);
+                        cell.unstable = unstable
+                    }
+            
+                    bgm.grid.cells[x][y] = cell;
+                }
             }
-            
-            bgm.grid.cells[x][y] = cell;
-        }
-    }
     
-    return bgm;
-}
+            return bgm;
+        }
+    else if(gametitle=="DIVE"){ //AI fails to load
+        GameManager.prototype.isGameTerminated = function () {
+            if (this.over || (this.won && !this.keepPlaying)) {
+                return true;
+            } else {
+                return false;
+            }
+        };
+        StubManager.prototype.updateCurrentlyUnlocked=StubManager.prototype.setGameMode=StubManager.prototype.announce=nullfunc; //by this point the AI manages to install itself
 }
