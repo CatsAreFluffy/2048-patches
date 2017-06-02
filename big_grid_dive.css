@@ -1,0 +1,36 @@
+.tile.tile-position-5-1 {
+    position: absolute;
+    left: 485px;
+    top: 0px; }
+.tile.tile-position-5-2 {
+    position: absolute;
+    left: 485px;
+    top: 121px; }
+.tile.tile-position-5-3 {
+    position: absolute;
+    left: 485px;
+    top: 243px; }
+.tile.tile-position-5-4 {
+    position: absolute;
+    left: 485px;
+    top: 364px; }
+.tile.tile-position-5-5 {
+    position: absolute;
+    left: 485px;
+    top: 485px; }
+.tile.tile-position-4-5 {
+    position: absolute;
+    left: 364px;
+    top: 485px; }
+.tile.tile-position-3-5 {
+    position: absolute;
+    left: 243px;
+    top: 485px; }
+.tile.tile-position-2-5 {
+    position: absolute;
+    left: 121px;
+    top: 485px; }
+.tile.tile-position-1-5 {
+    position: absolute;
+    left: 0px;
+    top: 485px; }
