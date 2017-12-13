@@ -74,3 +74,4 @@ if(gametitle==="DIVE"){
     document.body.appendChild(document.createElement('style')).src='https://catsarefluffy.github.io/2048-patches/big_grid_dive.css';
 }else{
     document.body.appendChild(document.createElement('style')).src='https://catsarefluffy.github.io/2048-patches/big_grid.css';
+}
