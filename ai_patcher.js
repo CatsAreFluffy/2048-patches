@@ -67,8 +67,41 @@ if(takeOver){ //takeOver is a function used by the AI
             } else {
                 return false;
             }
-        };
-        StubManager.prototype.updateCurrentlyUnlocked=StubManager.prototype.setGameMode=StubManager.prototype.announce=nullfunc; //by this point the AI manages to install itself
+        }
+        GameManager.prototype.keepPlaying = true;
+        StubManager.prototype.updateCurrentlyUnlocked=StubManager.prototype.setGameMode=StubManager.prototype.announce=nullfunc;
+        // this gets annoying
+        HTMLActuator.prototype.announce = function (message) {
+            var announce = document.createElement("p");
+            announce.classList.add("announcement");
+            announce.textContent = message;
+            this.announcer.appendChild(announce);
+            setTimeout(this.removeFirstChild.bind(this,this.announcer),250);
+        }
+        AI.prototype.cloneGM=function(gm) {
+            // create a backgroud manager to do the runs on
+            var bgm = new GameManager(GRID_SIZE, StubManager, StubManager, StubManager);
+    
+                // clone grid
+                for (var x=0;x<gm.grid.cells.length;x++) {
+                for (var y=0;y<gm.grid.cells[x].length;y++) {
+                    var cell = gm.grid.cells[x][y];
+            
+                    // clone cell if exists
+                    if (cell) {
+                        var value = JSON.parse(JSON.stringify(cell.value));
+                        cell = new Tile({ x: cell.x, y: cell.y }, cell.value);
+                    }
+            
+                    bgm.grid.cells[x][y] = cell;
+                }
+            }
+            bgm.tileTypes = gm.tileTypes;
+    
+            return bgm;
+        }
+        document.getElementsByClassName("game-intro")[1].classList.remove("game-intro");
+        takeOver();
 }
 if(gametitle==="DIVE"){
     document.body.appendChild(document.createElement('style')).src='https://catsarefluffy.github.io/2048-patches/big_grid_dive.css';
